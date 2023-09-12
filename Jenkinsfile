@@ -21,7 +21,7 @@ pipeline
         {
             steps
             {
-               sh 'scp /var/lib/jenkins/workspace/job1/webapp/target/webapp.war ubuntu@172.31.32.29:/var/lib/tomcat9/webapps/webapp2/testapp.war'
+               sh 'scp /var/lib/jenkins/workspace/multiproject/webapp/target/webapp.war ubuntu@172.31.32.29:/var/lib/tomcat9/webapps/webapp2/testappp.war'
             }
         }
         stage('ContinuousTesting')
@@ -29,7 +29,7 @@ pipeline
             steps
             {
                git 'https://github.com/Shiva11devops/testing1.git'
-               sh 'java -jar /var/lib/jenkins/workspace/job1/testing.jar'
+               sh 'java -jar /var/lib/jenkins/workspace/multiproject/testing.jar'
             }
         }
        
@@ -40,7 +40,7 @@ pipeline
         success
         {
             input message: 'Need approval from the DM!', submitter: 'approval'
-               sh 'scp /var/lib/jenkins/workspace/job1/webapp/target/webapp.war ubuntu@172.31.44.139:/var/lib/tomcat9/webapps/webapp2/prodapp.war'
+               sh 'scp /var/lib/jenkins/workspace/multiproject/webapp/target/webapp.war ubuntu@172.31.44.139:/var/lib/tomcat9/webapps/webapp2/prodappp.war'
         }
         failure
         {
